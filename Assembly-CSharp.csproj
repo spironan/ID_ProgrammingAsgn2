@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ExchangeButtonSystem.cs" />
+     <Compile Include="Assets\Scripts\FadeInOut.cs" />
+     <Compile Include="Assets\Scripts\JoystickMovement.cs" />
      <Compile Include="Assets\Scripts\SceneTransition.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/UnityVersion_5_3_4/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
