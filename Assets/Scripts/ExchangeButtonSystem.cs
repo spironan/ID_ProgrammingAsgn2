@@ -36,9 +36,9 @@ public class ExchangeButtonSystem : MonoBehaviour {
     {
         if (currentObject != null)
         {
-            while (FadeOut(currentObject) > 0.0f)
-            { 
-            }
+            //while (FadeOut(currentObject) > 0.0f)
+            //{ 
+            //}
             currentObject.SetActive(false);
         }
     }
@@ -47,29 +47,29 @@ public class ExchangeButtonSystem : MonoBehaviour {
     {
         if (nextObject != null)
         {
-            while(FadeIn(nextObject) < 1.0f)
-            {
-            }
+            //while(FadeIn(nextObject) < 1.0f)
+            //{
+            //}
             nextObject.SetActive(true);
         }
 
     }
 
-    private float FadeIn(GameObject fadingObject)
-    {
-        fadingObject.GetComponent<MeshRenderer>().material.color 
-            = Color.Lerp(fadingObject.GetComponent<MeshRenderer>().material.color, alphaColor, timeToFade * Time.deltaTime);
+    //private float FadeIn(GameObject fadingObject)
+    //{
+    //    fadingObject.GetComponent<MeshRenderer>().material.color 
+    //        = Color.Lerp(fadingObject.GetComponent<MeshRenderer>().material.color, alphaColor, timeToFade * Time.deltaTime);
 
-        return fadingObject.GetComponent<MeshRenderer>().material.color.a;
-    }
+    //    return fadingObject.GetComponent<MeshRenderer>().material.color.a;
+    //}
 
-    private float FadeOut(GameObject fadingObject)
-    {
-        fadingObject.GetComponent<MeshRenderer>().material.color
-            = Color.Lerp(fadingObject.GetComponent<MeshRenderer>().material.color, alphaColor, timeToFade * Time.deltaTime);
+    //private float FadeOut(GameObject fadingObject)
+    //{
+    //    fadingObject.GetComponent<MeshRenderer>().material.color
+    //        = Color.Lerp(fadingObject.GetComponent<MeshRenderer>().material.color, alphaColor, timeToFade * Time.deltaTime);
 
-        return fadingObject.GetComponent<MeshRenderer>().material.color.a;
-    }
+    //    return fadingObject.GetComponent<MeshRenderer>().material.color.a;
+    //}
 
 
     public void ChangeTab(string tabName)
