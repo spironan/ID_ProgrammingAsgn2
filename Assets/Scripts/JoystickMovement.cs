@@ -17,23 +17,26 @@ public class JoystickMovement : MonoBehaviour ,IDragHandler, IPointerUpHandler, 
 
     public virtual void OnDrag(PointerEventData data)
     {
-        Vector2 pos;
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgImg.rectTransform
-            , data.position
-            , data.pressEventCamera
-            , out pos))
+        if (Time.timeScale == 1)
         {
-            //Resize the position to 0 to 1
-            pos.x = (pos.x / bgImg.rectTransform.sizeDelta.x);
-            pos.y = (pos.y / bgImg.rectTransform.sizeDelta.y);
+            Vector2 pos;
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgImg.rectTransform
+                , data.position
+                , data.pressEventCamera
+                , out pos))
+            {
+                //Resize the position to 0 to 1
+                pos.x = (pos.x / bgImg.rectTransform.sizeDelta.x);
+                pos.y = (pos.y / bgImg.rectTransform.sizeDelta.y);
 
-            inputVector = new Vector3(pos.x * 2 - 1, 0, pos.y * 2 - 1);
-            inputVector = (inputVector.magnitude > 1.0f) ? inputVector.normalized : inputVector;
+                inputVector = new Vector3(pos.x * 2 - 1, 0, pos.y * 2 - 1);
+                inputVector = (inputVector.magnitude > 1.0f) ? inputVector.normalized : inputVector;
 
-            //Move Joystick Img
-            joystickImg.rectTransform.anchoredPosition = 
-                new Vector3(inputVector.x * bgImg.rectTransform.sizeDelta.x / 3,
-                            inputVector.z * bgImg.rectTransform.sizeDelta.y / 3);
+                //Move Joystick Img
+                joystickImg.rectTransform.anchoredPosition =
+                    new Vector3(inputVector.x * bgImg.rectTransform.sizeDelta.x / 3,
+                                inputVector.z * bgImg.rectTransform.sizeDelta.y / 3);
+            }
         }
     }
 
