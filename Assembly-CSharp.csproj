@@ -45,12 +45,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ButtonCoolDownScirpt.cs" />
      <Compile Include="Assets\Scripts\ExchangeButtonSystem.cs" />
      <Compile Include="Assets\Scripts\FadeInOut.cs" />
      <Compile Include="Assets\Scripts\InboxSystem.cs" />
      <Compile Include="Assets\Scripts\JoystickMovement.cs" />
+     <Compile Include="Assets\Scripts\PauseScript.cs" />
      <Compile Include="Assets\Scripts\SceneTransition.cs" />
      <Compile Include="Assets\Scripts\UnavailableButtons.cs" />
+     <Compile Include="Assets\Scripts\WarriorAnimationScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class ExchangeButtonSystem : MonoBehaviour {
 
     public List<GameObject> scrollViewList = new List<GameObject>();
+    
     //For fading uses
     private Color alphaColor;
     public float timeToFade = 1.0f;
@@ -17,9 +18,15 @@ public class ExchangeButtonSystem : MonoBehaviour {
     void Start()
     {
         currentObject = nextObject = null;
-
+       
         foreach (GameObject temp in scrollViewList)
-            temp.SetActive(false);
+        {
+            if(temp.name == "Tab_Featured")
+                nextObject = temp;
+            else
+                temp.SetActive(false);
+        }
+        
     }
 
     void Update()
@@ -36,9 +43,11 @@ public class ExchangeButtonSystem : MonoBehaviour {
     {
         if (currentObject != null)
         {
-            //while (FadeOut(currentObject) > 0.0f)
-            //{ 
-            //}
+            float too = FadeOut(currentObject);
+            while ( too > 0.0f)
+            {
+                too = FadeOut(currentObject);
+            }
             currentObject.SetActive(false);
         }
     }
@@ -63,13 +72,13 @@ public class ExchangeButtonSystem : MonoBehaviour {
     //    return fadingObject.GetComponent<MeshRenderer>().material.color.a;
     //}
 
-    //private float FadeOut(GameObject fadingObject)
-    //{
-    //    fadingObject.GetComponent<MeshRenderer>().material.color
-    //        = Color.Lerp(fadingObject.GetComponent<MeshRenderer>().material.color, alphaColor, timeToFade * Time.deltaTime);
+    private float FadeOut(GameObject fadingObject)
+    {
+        fadingObject.GetComponent<MeshRenderer>().material.color
+            = Color.Lerp(fadingObject.GetComponent<MeshRenderer>().material.color, alphaColor, timeToFade * Time.deltaTime);
 
-    //    return fadingObject.GetComponent<MeshRenderer>().material.color.a;
-    //}
+        return fadingObject.GetComponent<MeshRenderer>().material.color.a;
+    }
 
 
     public void ChangeTab(string tabName)
