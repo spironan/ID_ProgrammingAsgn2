@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PauseScript : MonoBehaviour {
 
-    private bool paused;
     public GameObject pauseText;
+    private bool paused;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class PauseScript : MonoBehaviour {
         {
             Time.timeScale = 0;
             pauseText.SetActive(true);
+            SceneManager.LoadScene("InGameSettings");
             paused = true;
         }
         else
