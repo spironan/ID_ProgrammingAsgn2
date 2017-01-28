@@ -20,34 +20,25 @@ public class WarriorAnimationScript : MonoBehaviour
         canAttack = true;
         canUseSkill1 = true;
         canUseSkill2 = true;
-        Debug.Log("started");
-        Debug.Log(anim_ninja.GetInteger("State"));
     }
 
     void Update()
     {
-        if (anim_ninja.GetInteger("State") == 2
-            && !canAttack
-            && attack.interactable)
-        {
-            anim_ninja.SetInteger("State", 0);
+
+        if (!canAttack && attack.interactable)
+        { 
             canAttack = true;
-        }
-
-        else if (anim_ninja.GetInteger("State") == 3
-            && !canUseSkill1
-            && Skill1.interactable)
-        {
             anim_ninja.SetInteger("State", 0);
+        }
+        if (!canUseSkill1 && Skill1.interactable)
+        {
             canUseSkill1 = true;
-        }
-
-        else if (anim_ninja.GetInteger("State") == 4
-            && !canUseSkill2
-            && Skill2.interactable)
-        {
             anim_ninja.SetInteger("State", 0);
+        }
+        if (!canUseSkill2 && Skill2.interactable)
+        { 
             canUseSkill2 = true;
+            anim_ninja.SetInteger("State", 0);
         }
     }
 
@@ -57,7 +48,6 @@ public class WarriorAnimationScript : MonoBehaviour
         { 
           anim_ninja.SetInteger("State", 2);
           canAttack = false;
-          Debug.Log("started");
         }
     }
 
@@ -67,7 +57,6 @@ public class WarriorAnimationScript : MonoBehaviour
         {
             anim_ninja.SetInteger("State", 3);
             canUseSkill1 = false;
-            Debug.Log("started");
         }
     }
 
@@ -78,7 +67,6 @@ public class WarriorAnimationScript : MonoBehaviour
         {
             anim_ninja.SetInteger("State", 4);
             canUseSkill2 = false;
-            Debug.Log("started");
         }
     }
 
