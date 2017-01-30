@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\ExchangeButtonSystem.cs" />
      <Compile Include="Assets\Scripts\FadeInOut.cs" />
      <Compile Include="Assets\Scripts\FriendHelpScript.cs" />
+     <Compile Include="Assets\Scripts\FriendInviteSystem.cs" />
      <Compile Include="Assets\Scripts\InboxSystem.cs" />
      <Compile Include="Assets\Scripts\JoystickMovement.cs" />
      <Compile Include="Assets\Scripts\PauseScript.cs" />
