@@ -5,21 +5,31 @@ using System.Collections;
 public class ShopSystemScript : MonoBehaviour {
 
     public GameObject purchaseScreen;
+    public GameObject itemInfoScreen;
     private Image purchaseImage;
+    private Image itemInfoImage;
 
     void Start()
     {
         purchaseScreen.SetActive(false);
+        itemInfoScreen.SetActive(false);
         purchaseImage = purchaseScreen.GetComponent<Image>();
+        itemInfoImage = itemInfoScreen.GetComponent<Image>();
     }
 
-    public void Open()
+    public void Open(string name)
     {
-        purchaseScreen.SetActive(true);
+        if (name == purchaseScreen.name)
+            purchaseScreen.SetActive(true);
+        else if (name == itemInfoScreen.name)
+            itemInfoScreen.SetActive(true);
     }
 
-    public void Close()
+    public void Close(string name)
     {
-        purchaseScreen.SetActive(false);
+        if (name == purchaseScreen.name)
+            purchaseScreen.SetActive(false);
+        else if (name == itemInfoScreen.name)
+            itemInfoScreen.SetActive(false);
     }
 }
