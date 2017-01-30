@@ -29,7 +29,6 @@ public class ButtonCoolDownScirpt : MonoBehaviour {
             {
                 if (cooldown.fillAmount > 0)
                     cooldown.fillAmount -= (float)((1.0f / coolDownDuration) * Time.deltaTime );
-                //(float)(1.0f/coolDownDuration/60.f)
                 else
                 {
                     buttonDown = false;

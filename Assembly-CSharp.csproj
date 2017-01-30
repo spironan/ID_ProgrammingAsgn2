@@ -51,9 +51,11 @@
      <Compile Include="Assets\Scripts\FriendHelpScript.cs" />
      <Compile Include="Assets\Scripts\GoToScene.cs" />
      <Compile Include="Assets\Scripts\JoystickMovement.cs" />
+     <Compile Include="Assets\Scripts\NinjaAnimationScript.cs" />
      <Compile Include="Assets\Scripts\PauseScript.cs" />
      <Compile Include="Assets\Scripts\PurchaseCurrency.cs" />
      <Compile Include="Assets\Scripts\SceneTransition.cs" />
+     <Compile Include="Assets\Scripts\ShopSystemScript.cs" />
      <Compile Include="Assets\Scripts\Splash.cs" />
      <Compile Include="Assets\Scripts\UnavailableButtons.cs" />
      <Compile Include="Assets\Scripts\WarriorAnimationScript.cs" />

@@ -1,83 +1,41 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
-public class WarriorAnimationScript : MonoBehaviour
-{
-    public Animator anim_ninja;
-    public Button attack;
-    public Button Skill1;
-    public Button Skill2;
+public class WarriorAnimationScript : MonoBehaviour {
 
-    private bool canAttack;
-    private bool canUseSkill1;
-    private bool canUseSkill2;
+    public GameObject warrior;
+    public Vector3 finalLocation;
+    private Animator warrior_anim;
+    private bool callForHelp;
 
-    // Use this for initialization
-    void Start()
-    {
-        anim_ninja = GetComponent<Animator>();
-        canAttack = true;
-        canUseSkill1 = true;
-        canUseSkill2 = true;
-    }
+	// Use this for initialization
+	void Start () {
+        finalLocation = new Vector3(0, 0, 0);
+        warrior_anim = warrior.GetComponent<Animator>();
+        callForHelp = false;
+	}
+	
+	// Update is called once per frame
+	void Update () {
 
-    void Update()
-    {
-
-        if (!canAttack && attack.interactable)
-        { 
-            canAttack = true;
-            anim_ninja.SetInteger("State", 0);
-        }
-        if (!canUseSkill1 && Skill1.interactable)
+        if (callForHelp && Vector3.Distance(warrior.transform.position,finalLocation)> 1.0f)
         {
-            canUseSkill1 = true;
-            anim_ninja.SetInteger("State", 0);
+            warrior.transform.position += ((finalLocation - warrior.transform.position).normalized) * Time.deltaTime * 5;
+            warrior_anim.SetBool("New Bool", true);
         }
-        if (!canUseSkill2 && Skill2.interactable)
-        { 
-            canUseSkill2 = true;
-            anim_ninja.SetInteger("State", 0);
-        }
-    }
-
-    public void Attack()
-    {
-        if (canAttack)
-        { 
-          anim_ninja.SetInteger("State", 2);
-          canAttack = false;
-        }
-    }
-
-    public void UseSkill1()
-    {
-        if (canUseSkill1)
+        if (Vector3.Distance(warrior.transform.position, finalLocation) <= 1.0f)
         {
-            anim_ninja.SetInteger("State", 3);
-            canUseSkill1 = false;
+            callForHelp = false;
+            warrior_anim.SetBool("New Bool", false);
         }
-    }
+	}
 
 
-    public void UseSkill2()
+    public void Help()
     {
-        if (canUseSkill2)
+        if (!callForHelp && warrior.transform.position != finalLocation)
         {
-            anim_ninja.SetInteger("State", 4);
-            canUseSkill2 = false;
+            callForHelp = true;
         }
-    }
-
-
-    public void Run()
-    {
-        anim_ninja.SetInteger("State", 1);
-    }
-
-    public void Idle()
-    {
-        anim_ninja.SetInteger("State", 0);
     }
 }
