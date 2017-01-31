@@ -12,7 +12,7 @@ public class FriendInviteSystem : MonoBehaviour {
     private Button currentObject;
     private Button nextObject;
 
-    bool isPressed;
+    bool isPressed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -31,16 +31,6 @@ public class FriendInviteSystem : MonoBehaviour {
             InitNext();
             currentObject = nextObject;
         }
-        //if(nextObject.interactable == false)
-        //{
-        //    foreach(Button temp in FriendButtons)
-        //    {
-        //        if(temp != nextObject)
-        //        {
-        //            temp.interactable = true;
-        //        }
-        //    }
-        //}
 	}
 
     private void InitNext()
@@ -49,16 +39,6 @@ public class FriendInviteSystem : MonoBehaviour {
         {
             nextObject.interactable = true;
         }
-        //else if(currentObject == nextObject)
-        //{
-        //    foreach(Button temp in FriendButtons)
-        //    {
-        //        if(temp != currentObject)
-        //        {
-        //            temp.interactable = true;
-        //        }
-        //    }
-        //}
     }
 
     private void ExitCurrent()
@@ -68,7 +48,7 @@ public class FriendInviteSystem : MonoBehaviour {
            if(temp != currentObject)
            {
                temp.interactable = false;
-               isPressed = true;
+               isPressed = true; 
            }
            
         }
@@ -81,20 +61,17 @@ public class FriendInviteSystem : MonoBehaviour {
             if (temp.name == buttonName)
                 nextObject = temp;
         }
+        //if (isPressed)
+        //{
+            foreach(Button temp in FriendButtons)
+            {
+                if (isPressed && temp == nextObject)
+                {
+                    temp.interactable = true;
+                    isPressed = false;
+                }
+                temp.interactable = true;
+            }
     }
 
-    //private void CheckPressedButton()
-    //{
-    //    foreach (Button temp in FriendButtons)
-    //    {
-    //        if (isPressed)
-    //        {
-    //            if (temp != currentObject)
-    //            {
-    //                temp.interactable = true;
-    //                isPressed = false;
-    //            }
-    //        }
-    //    }
-    //}
 }

@@ -52,8 +52,10 @@
      <Compile Include="Assets\Scripts\FriendInviteSystem.cs" />
      <Compile Include="Assets\Scripts\InboxSystem.cs" />
      <Compile Include="Assets\Scripts\JoystickMovement.cs" />
+     <Compile Include="Assets\Scripts\NinjaAnimationScript.cs" />
      <Compile Include="Assets\Scripts\PauseScript.cs" />
      <Compile Include="Assets\Scripts\SceneTransition.cs" />
+     <Compile Include="Assets\Scripts\ShopSystemScript.cs" />
      <Compile Include="Assets\Scripts\UnavailableButtons.cs" />
      <Compile Include="Assets\Scripts\WarriorAnimationScript.cs" />
  <Reference Include="UnityEngine.UI">

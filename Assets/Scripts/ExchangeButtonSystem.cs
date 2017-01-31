@@ -43,11 +43,6 @@ public class ExchangeButtonSystem : MonoBehaviour {
     {
         if (currentObject != null)
         {
-            float too = FadeOut(currentObject);
-            while ( too > 0.0f)
-            {
-                too = FadeOut(currentObject);
-            }
             currentObject.SetActive(false);
         }
     }
@@ -56,9 +51,6 @@ public class ExchangeButtonSystem : MonoBehaviour {
     {
         if (nextObject != null)
         {
-            //while(FadeIn(nextObject) < 1.0f)
-            //{
-            //}
             nextObject.SetActive(true);
         }
 
@@ -72,13 +64,13 @@ public class ExchangeButtonSystem : MonoBehaviour {
     //    return fadingObject.GetComponent<MeshRenderer>().material.color.a;
     //}
 
-    private float FadeOut(GameObject fadingObject)
-    {
-        fadingObject.GetComponent<MeshRenderer>().material.color
-            = Color.Lerp(fadingObject.GetComponent<MeshRenderer>().material.color, alphaColor, timeToFade * Time.deltaTime);
+    //private float FadeOut(GameObject fadingObject)
+    //{
+    //    fadingObject.GetComponent<MeshRenderer>().material.color
+    //        = Color.Lerp(fadingObject.GetComponent<MeshRenderer>().material.color, alphaColor, timeToFade * Time.deltaTime);
 
-        return fadingObject.GetComponent<MeshRenderer>().material.color.a;
-    }
+    //    return fadingObject.GetComponent<MeshRenderer>().material.color.a;
+    //}
 
 
     public void ChangeTab(string tabName)

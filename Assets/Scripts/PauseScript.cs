@@ -5,13 +5,13 @@ using System.Collections;
 
 public class PauseScript : MonoBehaviour {
 
-    public GameObject pauseText;
+    public GameObject pauseScreen;
     private bool paused;
 
     void Start()
     {
         paused = false;
-        pauseText.SetActive(false);
+        pauseScreen.SetActive(false);
     }
 
     public void Pause()
@@ -19,14 +19,13 @@ public class PauseScript : MonoBehaviour {
         if (!paused)
         {
             Time.timeScale = 0;
-            pauseText.SetActive(true);
-            SceneManager.LoadScene("InGameSettings");
+            pauseScreen.SetActive(true);
             paused = true;
         }
         else
         { 
             Time.timeScale = 1;
-            pauseText.SetActive(false);
+            pauseScreen.SetActive(false);
             paused = false;
         }
     }
