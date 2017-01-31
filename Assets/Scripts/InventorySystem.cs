@@ -108,7 +108,6 @@ public class InventorySystem : MonoBehaviour {
         //Check if any existing buttons is pressed
         if (!isPressed)
         {
-            
             foreach (Button temp in equipButtonList)
             {
                 if (temp.name == buttonName)
