@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Tecklee/Combat.unity
+- path: Assets/Scenes/Andy/Splash.unity
   isLoaded: 1
   isActive: 1

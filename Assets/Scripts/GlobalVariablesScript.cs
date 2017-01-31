@@ -5,31 +5,30 @@ using System.Collections.Generic;
 
 public class GlobalVariablesScript : MonoBehaviour {
 
-    public static SceneNodes currentScene;
-    public static List<SceneNodes> sceneTracking = new List<SceneNodes>();
+    private static List<SceneNodes> data = new List<SceneNodes>();
 
-    void Start()
+    void Awake()
     {
-        SceneNodes temp = GetComponent<SceneNodes>();
-        Debug.Log(temp.name);
-        if (sceneTracking.Count > 0)
-        { 
-            temp.SetPrev(sceneTracking[sceneTracking.Count - 1]);
-            sceneTracking[sceneTracking.Count - 1].SetNext(temp);
-        }
-        sceneTracking.Add(temp);
-        currentScene = sceneTracking[sceneTracking.Count - 1];
-        //Debug.Log("Current Scene : " + currentScene.name.ToString() );
+        DontDestroyOnLoad(transform.gameObject);
     }
 
-    public void GenericBackButton()
+    public void AddScene(SceneNodes newData)
     {
-        if (currentScene.GetPrev() != null)
+        if (data.Count > 1)
         { 
-            currentScene = currentScene.GetPrev();
-            SceneManager.LoadScene(currentScene.GetSceneName());
+            data[data.Count - 1].SetNext(newData);
+            newData.SetPrev(data[data.Count - 1]);
         }
-        Debug.Log("Current Scene" + currentScene.name.ToString());
+        data.Add(newData);
     }
 
+    public void BackButton()
+    {
+        Debug.Log(data[data.Count - 1].GetSceneName());
+        if (data.Count > 1)
+        {
+            SceneManager.LoadScene(data[data.Count - 2].GetSceneName());
+            data.Remove(data[data.Count - 1]);
+        }
+    }
 }
