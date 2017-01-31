@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\FriendHelpScript.cs" />
      <Compile Include="Assets\Scripts\FriendInviteSystem.cs" />
      <Compile Include="Assets\Scripts\InboxSystem.cs" />
+     <Compile Include="Assets\Scripts\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\JoystickMovement.cs" />
      <Compile Include="Assets\Scripts\NinjaAnimationScript.cs" />
      <Compile Include="Assets\Scripts\PauseScript.cs" />

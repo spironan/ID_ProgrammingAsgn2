@@ -6,10 +6,11 @@ using System.Collections.Generic;
 
 public class InboxSystem : MonoBehaviour {
 
-    //// Use this for initialization
-    //void Start () {
-	
-    //}
+    // Use this for initialization
+    void Start()
+    {
+        FP_btn.Select();
+    }
 	
     //// Update is called once per frame
     //void Update () {
@@ -19,6 +20,9 @@ public class InboxSystem : MonoBehaviour {
     public Canvas FPCanvas;
     public Canvas ItemCanvas;
     public Canvas GiftCanvas;
+    public Button FP_btn;
+    public Button Item_btn;
+    public Button Gift_btn;
 
     public List<GameObject> itemList = new List<GameObject>();
     public List<GameObject> giftList = new List<GameObject>();
@@ -29,6 +33,22 @@ public class InboxSystem : MonoBehaviour {
         FPCanvas.enabled = true;
         ItemCanvas.enabled = false;
         GiftCanvas.enabled = false;
+    }
+
+    void Update()
+    {
+        if(FPCanvas.enabled == true)
+        {
+            FP_btn.Select();
+        }
+        else if (ItemCanvas.enabled == true)
+        {
+            Item_btn.Select();
+        }
+        else if (GiftCanvas.enabled == true)
+        {
+            Gift_btn.Select();
+        }
     }
 
     private void FPOn()
@@ -102,4 +122,5 @@ public class InboxSystem : MonoBehaviour {
             temp.SetActive(false);
         }
     }
+    
 }

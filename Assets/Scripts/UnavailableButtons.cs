@@ -26,9 +26,4 @@ public class UnavailableButtons : MonoBehaviour
         UnavailableCanvas.enabled = false;
         MainCanvas.enabled = true;
     }
-
-    public void LoadOn()
-    {
-        SceneManager.LoadScene("Combat");
-    }
 }
