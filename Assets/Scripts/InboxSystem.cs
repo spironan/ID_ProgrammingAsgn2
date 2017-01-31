@@ -6,10 +6,7 @@ using System.Collections.Generic;
 
 public class InboxSystem : MonoBehaviour {
 
-    //// Use this for initialization
-    //void Start () {
-	
-    //}
+    
 	
     //// Update is called once per frame
     //void Update () {
@@ -19,16 +16,43 @@ public class InboxSystem : MonoBehaviour {
     public Canvas FPCanvas;
     public Canvas ItemCanvas;
     public Canvas GiftCanvas;
+    public Button FP_btn;
+    public Button Item_btn;
+    public Button Gift_btn;
+    public GameObject confirmationPopupFP;
+    public GameObject confirmationPopupItem;
+    public GameObject confirmationPopupGift;
 
     public List<GameObject> itemList = new List<GameObject>();
     public List<GameObject> giftList = new List<GameObject>();
     public List<GameObject> fpList = new List<GameObject>();
 
-    void Awake()
+    // Use this for initialization
+    void Start()
     {
+        FP_btn.Select();
         FPCanvas.enabled = true;
         ItemCanvas.enabled = false;
         GiftCanvas.enabled = false;
+        confirmationPopupFP.SetActive(false);
+        confirmationPopupItem.SetActive(false);
+        confirmationPopupGift.SetActive(false);
+    }
+
+    void Update()
+    {
+        if(FPCanvas.enabled == true)
+        {
+            FP_btn.Select();
+        }
+        else if (ItemCanvas.enabled == true)
+        {
+            Item_btn.Select();
+        }
+        else if (GiftCanvas.enabled == true)
+        {
+            Gift_btn.Select();
+        }
     }
 
     private void FPOn()
@@ -79,27 +103,49 @@ public class InboxSystem : MonoBehaviour {
         }
     }
 
-    public void CollectAllFP()
+    public void ClosePopup(string popup)
     {
+        if (popup == confirmationPopupFP.name)
+            confirmationPopupFP.SetActive(false);
+
+        else if (popup == confirmationPopupItem.name)
+            confirmationPopupItem.SetActive(false);
+
+        else if (popup == confirmationPopupGift.name)
+            confirmationPopupGift.SetActive(false);
+    }
+
+    public void CollectAllFP(string popup)
+    {
+        if (popup == confirmationPopupFP.name)
+            confirmationPopupFP.SetActive(true);
+
         foreach (GameObject temp in fpList)
         {
             temp.SetActive(false);
         }
     }
 
-    public void CollectAllGifts()
+    public void CollectAllGifts(string popup)
     {
+        if (popup == confirmationPopupGift.name)
+            confirmationPopupGift.SetActive(true);
+
         foreach (GameObject temp in giftList)
         {
             temp.SetActive(false);
         }
     }
 
-    public void CollectAllItems()
+    public void CollectAllItems(string popup)
     {
+        if (popup == confirmationPopupItem.name)
+            confirmationPopupItem.SetActive(true);
+
         foreach (GameObject temp in itemList)
         {
             temp.SetActive(false);
         }
     }
+    
 }
