@@ -39,6 +39,7 @@ public class FriendInviteSystem : MonoBehaviour {
                 }
             }
             isPressed = true;
+            currentObject.GetComponentInChildren<Text>().text = "UnInvite";
         }
         else // if button is pressed
         {
@@ -50,6 +51,7 @@ public class FriendInviteSystem : MonoBehaviour {
                     temp.interactable = true;
                 }
                 isPressed = false;
+                currentObject.GetComponentInChildren<Text>().text = "Invite";
             }
         }
     }
