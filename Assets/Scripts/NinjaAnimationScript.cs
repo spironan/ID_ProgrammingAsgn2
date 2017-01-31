@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class NinjaAnimationScript : MonoBehaviour
@@ -12,7 +13,7 @@ public class NinjaAnimationScript : MonoBehaviour
     private bool canAttack;
     private bool canUseSkill1;
     private bool canUseSkill2;
-
+    
     // Use this for initialization
     void Start()
     {

@@ -12,7 +12,7 @@ public class SceneNodes : MonoBehaviour {
 	void Start () {
         next = prev = null;
         sceneName = SceneManager.GetActiveScene().name;
-        Debug.Log(sceneName);
+        GameObject.FindGameObjectWithTag("GlobalVariable").GetComponent<GlobalVariablesScript>().AddScene(this);
 	}
 
     public SceneNodes GetPrev()
@@ -27,7 +27,6 @@ public class SceneNodes : MonoBehaviour {
 
     public string GetSceneName()
     {
-        Debug.Log(sceneName);
         return sceneName;
     }
 
@@ -38,11 +37,16 @@ public class SceneNodes : MonoBehaviour {
 
     public void SetNext(SceneNodes nextScene)
     {
-        next = nextScene;
+        this.next = nextScene;
     }
 
     public void SetSceneName(string sceneName)
     {
         this.sceneName = sceneName;
+    }
+
+    public void GenericBackButton()
+    {
+        GameObject.FindGameObjectWithTag("GlobalVariable").GetComponent<GlobalVariablesScript>().BackButton();
     }
 }
